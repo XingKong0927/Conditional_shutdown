@@ -17,7 +17,7 @@ def sendmail():
     sender = '1137813060@qq.com'        # 由此用户代发
     receivers = ['1137813060@qq.com']   # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
     
-    message = MIMEText('已识别到问题，您的主机即将自动关机...', 'plain', 'utf-8')
+    message = MIMEText('已识别到问题，您的主机将于五分钟后自动关机...', 'plain', 'utf-8')
     message['From'] = Header("您的主机", 'utf-8')       # 发送者
     message['To'] =  Header("主人", 'utf-8')            # 接收者
 
@@ -48,7 +48,7 @@ if __name__=='__main__':
         shutdowns = status.network_status()
         if(shutdowns == 1):
             print("半小时后自动关机")
-            os.system('shutdown -s -t {}'.format(1800))     # 半小时后关机
+            os.system('shutdown -s -t {}'.format(300))     # 五分钟后关机
             sendmail()      # 发送邮件提示
             break
         else:
