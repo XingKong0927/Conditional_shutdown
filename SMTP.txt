@@ -1,0 +1,10 @@
+;ini文件说明，可以改个后缀直接用
+
+[email_qq]
+
+mail_host = smtp.qq.com
+mail_user = *****@qq.com
+mail_pass = ****        
+mail_port = 25
+
+;注：文本不能加引号，否则会报错

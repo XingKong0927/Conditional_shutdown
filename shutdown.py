@@ -42,12 +42,13 @@ import time
 import status
 
 if __name__=='__main__':
+    
     while True:
-        time.sleep(1)        # 一个小时(3600秒)运行一次
+        time.sleep(1800)        # 半个小时(1800秒)运行一次
         shutdowns = status.network_status()
-        if(shutdowns == 0):
+        if(shutdowns == 1):
             print("半小时后自动关机")
-            # os.system('shutdown -s -t {}'.format(1800))     # 半小时后关机
+            os.system('shutdown -s -t {}'.format(1800))     # 半小时后关机
             sendmail()      # 发送邮件提示
             break
         else:
