@@ -22,7 +22,7 @@ def sendmail():
     message['From'] = Header("您的主机", 'utf-8')       # 发送者
     message['To'] =  Header("主人", 'utf-8')            # 接收者
 
-    subject = '正常运行提示(程序自动发送)-ZM'
+    subject = '正常运行提示(程序自动发送)-SYF'
     message['Subject'] = Header(subject, 'utf-8')
     
     try:
@@ -47,7 +47,8 @@ if __name__=='__main__':
         shutdowns = status.network_status()
         if(shutdowns == 1):
             print("五分钟后自动关机")
-            os.system('shutdown -s -t {}'.format(300))     # 五分钟后关机
+            os.system('shutdown -a')                    # 取消关机
+            os.system('shutdown -s -t {}'.format(300))  # 五分钟后关机
             break
         else:
             print("状态正常，继续运行")
